@@ -23,6 +23,12 @@ const Home: FC<HomeProps> = ({ navigation }) => {
         }} title='Go To Video Page' color={'#845EC2'} />
       </View>
 
+      <View style={styles.button}>
+        <Button onPress={() => {
+          navigation.navigate('AiChat');
+        }} title='Go To AiChat Page' color={'#845EC2'} />
+      </View>
+
     </View>
   );
 };

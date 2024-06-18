@@ -5,6 +5,7 @@ import HomeSCreen from "@screens/HomeScreen";
 import DetailsScreen from '@screens/DetailsScreen';
 import VideoScreen from '@screens/VideoScreen';
 import SplashScreen from 'react-native-splash-screen';
+import AiChat from '@screens/AiChat';
 
 interface Props { }
 
@@ -18,6 +19,7 @@ const App: FC<Props> = () => {
         <Stack.Screen name='Home' component={HomeSCreen} options={{ title: 'Home' }} />
         <Stack.Screen name='Details' component={DetailsScreen} options={{ title: 'Details Title' }} />
         <Stack.Screen name='Video' component={VideoScreen} options={{ title: 'Video Title' }} />
+        <Stack.Screen name='AiChat' component={AiChat} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
