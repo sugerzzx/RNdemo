@@ -19,18 +19,12 @@ const AiChat: FC<AiChatProps> = ({ }) => {
     }
   };
 
-  const navigationView = () => (
-    <View style={[styles.container, styles.navigationContainer]}>
-      <SideBar drawer={drawer}></SideBar>
-    </View>
-  );
-
   return (
     <DrawerLayoutAndroid
       ref={drawer}
       drawerWidth={300}
       drawerPosition={drawerPosition}
-      renderNavigationView={navigationView}>
+      renderNavigationView={() => <SideBar drawer={drawer}></SideBar>}>
       <View style={styles.container}>
         <Text style={styles.paragraph}>Drawer on the {drawerPosition}!</Text>
         <Button
