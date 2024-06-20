@@ -1,19 +1,19 @@
-import { Button, DrawerLayoutAndroid, Pressable, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { FC } from 'react';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import { Button, DrawerLayoutAndroid, StatusBar, StyleSheet, TextInput, View } from 'react-native';
+import { FC, useRef } from 'react';
+import SearchIcon from './SearchIcon';
 
 interface SideBarProps {
   drawer: React.RefObject<DrawerLayoutAndroid>;
 }
 
 const SideBar: FC<SideBarProps> = ({ drawer }) => {
+  const textInputRef = useRef<TextInput>(null);
+
   return (
     <View style={[styles.container, styles.navigationContainer]}>
       <View style={styles.searchArea}>
-        <Pressable style={styles.searchIcon}>
-          <AntDesign name="search1" size={20} color="#4F8EF7" />
-        </Pressable>
-        <TextInput></TextInput>
+        <SearchIcon textInputRef={textInputRef} />
+        <TextInput ref={textInputRef} style={styles.textInupt} placeholder='搜索' placeholderTextColor='#777' cursorColor='#222' ></TextInput>
       </View>
       <Button
         title="Close drawer"
@@ -43,12 +43,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  searchIcon: {
-    backgroundColor: 'transparent',
-    borderRadius: 50, // 圆形
-    aspectRatio: 1, // 宽高比
-    height: '50%', // 高度
-    justifyContent: 'center', // 垂直居中
-    alignItems: 'center', // 水平居中
+
+  textInupt: {
+    flex: 1,
+    height: '100%',
+    marginLeft: 10,
   },
 });
